@@ -37,7 +37,17 @@
   "libVersion": "2.25.0",
   "appid": "wx1d30aaa9b938cf29",
   "projectname": "uni-shop",
-  "condition": {},
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/cate/cate",
+          "pathName": "pages/cate/cate",
+          "query": ""
+        }
+      ]
+    }
+  },
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
