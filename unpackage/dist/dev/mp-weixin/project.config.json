@@ -11,6 +11,7 @@
     "coverView": true,
     "postcss": true,
     "lazyloadPlaceholderEnable": false,
+    "preloadBackgroundData": false,
     "minified": true,
     "autoAudits": false,
     "uglifyFileName": false,
@@ -30,8 +31,7 @@
       "outputPath": ""
     },
     "disableUseStrict": false,
-    "useCompilerPlugins": false,
-    "preloadBackgroundData": false
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.25.0",
