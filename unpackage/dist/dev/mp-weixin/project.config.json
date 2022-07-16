@@ -11,7 +11,6 @@
     "coverView": true,
     "postcss": true,
     "lazyloadPlaceholderEnable": false,
-    "preloadBackgroundData": false,
     "minified": true,
     "autoAudits": false,
     "uglifyFileName": false,
@@ -38,14 +37,21 @@
   "appid": "wx1d30aaa9b938cf29",
   "projectname": "uni-shop",
   "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/cate/cate",
-          "pathName": "pages/cate/cate",
-          "query": ""
-        }
-      ]
+      "current": -1,
+      "list": []
     }
   },
   "editorSetting": {

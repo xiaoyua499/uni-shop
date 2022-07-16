@@ -1,5 +1,9 @@
 <template>
+  <view class="search-box">
+    <my-search @click="gotoSearch"></my-search>
+  </view>
   <view>
+
     <!-- 轮播图 -->
     <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
       <swiper-item v-for="(item,i) in swiperList" :key="i">
@@ -106,7 +110,7 @@
           })
         })
         this.floorList = res.message
-        console.log(res.message);
+        // console.log(res.message);
       },
 
       //点击进入分类页面
@@ -117,12 +121,24 @@
             url: '/pages/cate/cate'
           })
         }
+      },
+      //跳转到搜索页面
+      gotoSearch() {
+        uni.navigateTo({
+          url: '/subpkg/search/search'
+        })
       }
     }
   }
 </script>
 
 <style lang="scss">
+  .search-box {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
   // 轮播图
   swiper {
     height: 330rpx;

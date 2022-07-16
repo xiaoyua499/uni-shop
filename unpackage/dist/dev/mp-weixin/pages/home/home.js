@@ -45,7 +45,6 @@ const _sfc_main = {
         });
       });
       this.floorList = res.message;
-      console.log(res.message);
     },
     navClickHandler(item) {
       if (item.name === "\u5206\u7C7B") {
@@ -53,26 +52,40 @@ const _sfc_main = {
           url: "/pages/cate/cate"
         });
       }
+    },
+    gotoSearch() {
+      common_vendor.index.navigateTo({
+        url: "/subpkg/search/search"
+      });
     }
   }
 };
+if (!Array) {
+  const _easycom_my_search2 = common_vendor.resolveComponent("my-search");
+  _easycom_my_search2();
+}
+const _easycom_my_search = () => "../../components/my-search/my-search2.js";
+if (!Math) {
+  _easycom_my_search();
+}
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.f($data.swiperList, (item, i, i0) => {
+    a: common_vendor.o($options.gotoSearch),
+    b: common_vendor.f($data.swiperList, (item, i, i0) => {
       return {
         a: item.image_src,
         b: "/subpkg/goods_detail/goods_detail?goods_id=" + item.goods_id,
         c: i
       };
     }),
-    b: common_vendor.f($data.navList, (item, index, i0) => {
+    c: common_vendor.f($data.navList, (item, index, i0) => {
       return {
         a: item.image_src,
         b: index,
         c: common_vendor.o(($event) => $options.navClickHandler(item))
       };
     }),
-    c: common_vendor.f($data.floorList, (item, index, i0) => {
+    d: common_vendor.f($data.floorList, (item, index, i0) => {
       return {
         a: item.floor_title.image_src,
         b: item.product_list[0].image_src,

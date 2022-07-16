@@ -1,5 +1,6 @@
 <template>
   <view>
+    <my-search @click="gotoSearch"></my-search>
     <view class="scroll-container">
       <!-- 左侧滚动 -->
       <scroll-view class="left-scroll-container" scroll-y="true" :style="{height: wh+'px'}">
@@ -50,7 +51,7 @@
       // 获取当前系统的信息
       const sysInfo = uni.getSystemInfoSync()
       // 为 wh 窗口可用高度动态赋值
-      this.wh = sysInfo.windowHeight
+      this.wh = sysInfo.windowHeight - 50
 
       //获取分类数据列表
       this.getCateList()
@@ -62,7 +63,7 @@
         const {
           data: res
         } = await uni.$http.get('/api/public/v1/categories')
-        console.log(res);
+        // console.log(res);
         if (res.meta.status !== 200) {
           return uni.$showMsg()
         }
@@ -89,6 +90,12 @@
       gotoGoodsList(item2) {
         uni.navigateTo({
           url: '/subpkg/goods_list/goods_list?cid=' + item2.cat_id
+        })
+      },
+      //跳转到搜索页面
+      gotoSearch() {
+        uni.navigateTo({
+          url: '/subpkg/search/search'
         })
       }
     }

@@ -27,6 +27,13 @@
       "enablePullDownRefresh": false
     }
 
+  }, {
+    "path": "components/my-search/my-search",
+    "style": {
+      "navigationBarTitleText": "",
+      "enablePullDownRefresh": false
+    }
+
   }],
 
   "subPackages": [{
@@ -40,6 +47,13 @@
 
     }, {
       "path": "goods_list/goods_list",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+
+    }, {
+      "path": "search/search",
       "style": {
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
