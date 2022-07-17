@@ -32,7 +32,7 @@ function createApp() {
   };
 }
 common_vendor.index.$http = common_vendor.$http;
-common_vendor.$http.baseUrl = "https://www.uinav.com";
+common_vendor.$http.baseUrl = "http://www.uinav.com";
 common_vendor.$http.beforeRequest = function(options) {
   common_vendor.index.showLoading({
     title: "\u6570\u636E\u52A0\u8F7D\u4E2D..."
