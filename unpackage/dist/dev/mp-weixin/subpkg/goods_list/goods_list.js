@@ -21,7 +21,6 @@ const _sfc_main = {
   },
   methods: {
     async getGoodsList(cb) {
-      console.log(this.queryObj);
       this.isloading = true;
       const {
         data: res
@@ -59,8 +58,7 @@ const _sfc_main = {
 };
 if (!Array) {
   const _easycom_my_goods2 = common_vendor.resolveComponent("my-goods");
-  const _component_v = common_vendor.resolveComponent("v");
-  (_easycom_my_goods2 + _component_v)();
+  _easycom_my_goods2();
 }
 const _easycom_my_goods = () => "../../components/my-goods/my-goods.js";
 if (!Math) {
@@ -70,7 +68,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.f($data.goodsList, (item, index, i0) => {
       return {
-        a: "e34b0caa-1-" + i0 + ",e34b0caa-0",
+        a: "e34b0caa-0-" + i0,
         b: common_vendor.p({
           goods: item
         }),

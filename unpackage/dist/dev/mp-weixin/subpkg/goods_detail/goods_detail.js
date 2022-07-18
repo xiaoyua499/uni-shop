@@ -1,4 +1,23 @@
 "use strict";
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
@@ -30,7 +49,19 @@ const _sfc_main = {
     const goods_id = options.goods_id;
     this.getGoodsDetail(goods_id);
   },
-  methods: {
+  computed: __spreadValues({}, common_vendor.mapGetters("m_cart", ["total"])),
+  watch: {
+    total: {
+      handler(newVal) {
+        const findResult = this.options.find((x) => x.text === "\u8D2D\u7269\u8F66");
+        if (findResult) {
+          findResult.info = newVal;
+        }
+      },
+      immediate: true
+    }
+  },
+  methods: __spreadProps(__spreadValues({}, common_vendor.mapMutations("m_cart", ["addToCart"])), {
     async getGoodsDetail(goods_id) {
       const {
         data: res
@@ -42,7 +73,6 @@ const _sfc_main = {
       }
       res.message.goods_introduce.replace(/<img /g, '<img style="display:block;"').replace(/webp/g, "jpg");
       this.goods_info = res.message;
-      console.log(res);
     },
     preview(index) {
       common_vendor.index.previewImage({
@@ -58,10 +88,19 @@ const _sfc_main = {
       }
     },
     buttonClick(e) {
-      console.log(e);
-      this.options[1].info++;
+      if (e.content.text === "\u52A0\u5165\u8D2D\u7269\u8F66") {
+        const goods = {
+          goods_id: this.goods_info.goods_id,
+          goods_name: this.goods_info.goods_name,
+          goods_price: this.goods_info.goods_price,
+          goods_count: 1,
+          goods_small_logo: this.goods_info.goods_small_logo,
+          goods_state: true
+        };
+        this.addToCart(goods);
+      }
     }
-  }
+  })
 };
 if (!Array) {
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
