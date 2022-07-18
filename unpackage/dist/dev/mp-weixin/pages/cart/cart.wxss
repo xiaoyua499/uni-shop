@@ -1,0 +1,13 @@
+/* 水平间距 */
+/* 水平间距 */
+.cart-title {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  height: 40px;
+  border-bottom: 1px solid #efefef;
+  font-size: 14px;
+}
+.cart-title .cart-title-text {
+  margin-left: 10pxs;
+}

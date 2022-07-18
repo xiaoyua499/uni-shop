@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports[Symbol.toStringTag] = "Module";
 var common_vendor = require("./common/vendor.js");
+var store_store = require("./store/store.js");
+require("./store/cart.js");
 if (!Math) {
   "./pages/home/home.js";
   "./pages/cate/cate.js";
@@ -27,6 +29,7 @@ const _sfc_main = {
 var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/Desktop/\u6587\u4EF6/web/\u9879\u76EE/uni-shop/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);
+  app.use(store_store.store);
   return {
     app
   };

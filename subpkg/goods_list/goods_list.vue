@@ -1,10 +1,10 @@
 <template>
   <view>
-    <v class="goods-list">
+    <view class="goods-list">
       <view v-for="(item,index) in goodsList" :key="index" @click="gotoDetail(item)">
         <my-goods :goods="item"></my-goods>
       </view>
-    </v>
+    </view>
   </view>
 </template>
 
@@ -42,7 +42,7 @@
     methods: {
       //获取商品列表与总数量
       async getGoodsList(cb) {
-        console.log(this.queryObj);
+        // console.log(this.queryObj);
         //打开节流阀
         this.isloading = true
         const {
