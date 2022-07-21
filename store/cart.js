@@ -62,6 +62,14 @@ export default {
       state.cart = state.cart.filter(x => x.goods_id !== goods_id)
       // 持久化存储到本地
       this.commit('m_cart/saveToStorage')
+    },
+    //更新所有商品的全选状态
+    updateAllGoodsState(state, newState) {
+      // 循环更新购物车中每件商品的勾选状态
+      state.cart.forEach(x => x.goods_state = newState)
+      // console.log(newState);
+      // 持久化存储到本地
+      this.commit('m_cart/saveToStorage')
     }
   },
 
@@ -73,6 +81,19 @@ export default {
       // 循环统计商品的数量，累加到变量 sum 中
       state.cart.forEach(goods => sum += goods.goods_count)
       return sum
+    },
+    //统计商品的总数量
+    checkedCount(state) {
+      // 先使用 filter 方法，从购物车中过滤器已勾选的商品
+      // 再使用 reduce 方法，将已勾选的商品总数量进行累加
+      // reduce() 的返回值就是已勾选的商品的总数量s
+      return state.cart.filter(x => x.goods_state).reduce((total, item) =>
+        total += item.goods_count, 0)
+    },
+    //统计购物车内商品的总价格
+    checkedGoodsAmount(state) {
+      return state.cart.filter(x => x.goods_state).reduce((total, item) => total += item.goods_price * item.goods_count,
+        0).toFixed(2)
     }
   },
 }

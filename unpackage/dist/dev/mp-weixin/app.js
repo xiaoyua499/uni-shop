@@ -4,6 +4,7 @@ exports[Symbol.toStringTag] = "Module";
 var common_vendor = require("./common/vendor.js");
 var store_store = require("./store/store.js");
 require("./store/cart.js");
+require("./store/user.js");
 if (!Math) {
   "./pages/home/home.js";
   "./pages/cate/cate.js";

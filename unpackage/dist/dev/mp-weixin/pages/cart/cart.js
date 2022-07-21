@@ -60,44 +60,50 @@ const _sfc_main = {
   })
 };
 if (!Array) {
+  const _easycom_my_address2 = common_vendor.resolveComponent("my-address");
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
   const _easycom_my_goods2 = common_vendor.resolveComponent("my-goods");
   const _easycom_uni_swipe_action_item2 = common_vendor.resolveComponent("uni-swipe-action-item");
   const _easycom_uni_swipe_action2 = common_vendor.resolveComponent("uni-swipe-action");
-  (_easycom_uni_icons2 + _easycom_my_goods2 + _easycom_uni_swipe_action_item2 + _easycom_uni_swipe_action2)();
+  const _easycom_my_settle2 = common_vendor.resolveComponent("my-settle");
+  (_easycom_my_address2 + _easycom_uni_icons2 + _easycom_my_goods2 + _easycom_uni_swipe_action_item2 + _easycom_uni_swipe_action2 + _easycom_my_settle2)();
 }
+const _easycom_my_address = () => "../../components/my-address/my-address.js";
 const _easycom_uni_icons = () => "../../uni_modules/uni-icons/components/uni-icons/uni-icons.js";
 const _easycom_my_goods = () => "../../components/my-goods/my-goods.js";
 const _easycom_uni_swipe_action_item = () => "../../uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.js";
 const _easycom_uni_swipe_action = () => "../../uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.js";
+const _easycom_my_settle = () => "../../components/my-settle/my-settle.js";
 if (!Math) {
-  (_easycom_uni_icons + _easycom_my_goods + _easycom_uni_swipe_action_item + _easycom_uni_swipe_action)();
+  (_easycom_my_address + _easycom_uni_icons + _easycom_my_goods + _easycom_uni_swipe_action_item + _easycom_uni_swipe_action + _easycom_my_settle)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return {
-    a: common_vendor.p({
+  return common_vendor.e({
+    a: _ctx.cart.length !== 0
+  }, _ctx.cart.length !== 0 ? {
+    b: common_vendor.p({
       type: "shop",
       size: "18"
     }),
-    b: common_vendor.f(_ctx.cart, (item, index, i0) => {
+    c: common_vendor.f(_ctx.cart, (item, index, i0) => {
       return {
-        a: "069a6915-3-" + i0 + "," + ("069a6915-2-" + i0),
+        a: "069a6915-4-" + i0 + "," + ("069a6915-3-" + i0),
         b: common_vendor.p({
           goods: item,
           ["show-radio"]: true,
           ["show-num"]: true
         }),
         c: common_vendor.o(($event) => $options.swipeActionClickHandler(item)),
-        d: "069a6915-2-" + i0 + ",069a6915-1",
+        d: "069a6915-3-" + i0 + ",069a6915-2",
         e: index
       };
     }),
-    c: common_vendor.o($options.radioChangeHandler),
-    d: common_vendor.o($options.numberChangeHandler),
-    e: common_vendor.p({
+    d: common_vendor.o($options.radioChangeHandler),
+    e: common_vendor.o($options.numberChangeHandler),
+    f: common_vendor.p({
       ["right-options"]: $data.options
     })
-  };
+  } : {});
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/Desktop/\u6587\u4EF6/web/\u9879\u76EE/uni-shop/pages/cart/cart.vue"]]);
 wx.createPage(MiniProgramPage);
