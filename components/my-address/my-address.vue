@@ -54,7 +54,7 @@
         // 1. 调用小程序提供的 chooseAddress() 方法，即可使用选择收货地址的功能
         //    返回值是一个数组：第 1 项为错误对象；第 2 项为成功之后的收货地址对象
         const res = await uni.chooseAddress()
-        console.log(res);
+        // console.log(res);
         //2. 用户成功的选择了收货地址
         if (res.errMsg === 'chooseAddress:ok') {
           // 为 data 里面的收货地址对象赋值
@@ -63,7 +63,7 @@
           // console.log(this.address);
         }
         //用户没有授权
-        if (res.errMsg === 'chooseAddress:fail auth deny' || err.errMsg ===
+        if (res.errMsg === 'chooseAddress:fail auth deny' || res.errMsg ===
           'chooseAddress:fail authorize no response') {
           this.reAuth()
         }
